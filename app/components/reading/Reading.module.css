@@ -1,0 +1,159 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 100;
+}
+
+.paper {
+  position: relative;
+
+  width: min(820px, 90vw);
+  height: min(1050px, 90vh);
+
+  border-radius: 24px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 28px 55px rgba(0,0,0,.24),
+    0 60px 110px rgba(0,0,0,.16);
+
+  pointer-events: auto;
+}
+
+.content {
+  position: absolute;
+  inset: 0;
+
+  padding: 110px 90px 90px;
+
+  display: flex;
+  flex-direction: column;
+
+  height: 100%;
+  box-sizing: border-box;
+
+  z-index: 2;
+}
+.letterLayout {
+  display: flex;
+  flex-direction: column;
+
+  flex: 1;
+
+  min-height: 0;
+}
+
+.heading {
+  margin: 0;
+
+  font-family: "Cormorant Garamond";
+  font-size: 52px;
+  font-weight: 600;
+
+  color: #5C4638;
+}
+
+.body {
+  flex: 1;
+
+  min-height: 0;
+
+  margin-top: 40px;
+
+  overflow-y: auto;
+
+  padding-right: 220px;
+  padding-bottom: 140px;
+
+  scrollbar-width: thin;
+  scrollbar-color: rgba(120, 90, 70, 0.4) transparent;
+}
+
+.body::-webkit-scrollbar {
+  width: 8px;
+}
+
+.body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.body::-webkit-scrollbar-thumb {
+  background: rgba(120, 90, 70, 0.35);
+  border-radius: 999px;
+}
+
+.footer {
+  position: absolute;
+
+  right: 0;
+  bottom: 0;
+
+  width: 100%;
+
+  display: flex;
+  justify-content: flex-end;
+
+  padding: 20px 0;
+
+  pointer-events: auto;
+}
+
+.continueButton {
+  position: absolute;
+
+  right: 40px;
+  bottom: 40px;
+
+  z-index: 50;
+
+  padding: 14px 28px;
+
+  border: none;
+  border-radius: 999px;
+
+  background: #6d4c41;
+  color: white;
+
+  font-family: "Cormorant Garamond";
+  font-size: 20px;
+
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.continueButton:hover {
+  background: #5a3d34;
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.18);
+
+  transition: 0.25s ease;
+}
+.inkCursor {
+  display: inline-block;
+
+  margin-left: 2px;
+
+  color: #5C4638;
+
+  animation: blinkCursor 1s infinite;
+}
+
+@keyframes blinkCursor {
+  0%,
+  45% {
+    opacity: 1;
+  }
+
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
