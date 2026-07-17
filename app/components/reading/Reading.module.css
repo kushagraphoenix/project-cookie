@@ -39,6 +39,8 @@
   box-sizing: border-box;
 
   z-index: 2;
+
+  color: #4B382F;
 }
 .letterLayout {
   display: flex;
@@ -73,6 +75,8 @@
 
   scrollbar-width: thin;
   scrollbar-color: rgba(120, 90, 70, 0.4) transparent;
+
+  color: #4B382F;
 }
 
 .body::-webkit-scrollbar {
