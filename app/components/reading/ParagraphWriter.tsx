@@ -5,9 +5,7 @@ import InkWriter from "./InkWriter";
 
 interface ParagraphWriterProps {
   paragraphs: string[];
-
   onComplete?: () => void;
-
   onParagraphComplete?: (index: number) => void;
 }
 
@@ -18,22 +16,22 @@ export default function ParagraphWriter({
 }: ParagraphWriterProps) {
   const [visibleCount, setVisibleCount] = useState(1);
 
-useEffect(() => {
-  setVisibleCount(1);
-}, [JSON.stringify(paragraphs)]);
+  useEffect(() => {
+    setVisibleCount(1);
+  }, [JSON.stringify(paragraphs)]);
 
   function handleParagraphComplete() {
-  onParagraphComplete?.(visibleCount - 1);
+    onParagraphComplete?.(visibleCount - 1);
 
-  if (visibleCount >= paragraphs.length) {
-    onComplete?.();
-    return;
+    if (visibleCount >= paragraphs.length) {
+      onComplete?.();
+      return;
+    }
+
+    setTimeout(() => {
+      setVisibleCount((prev) => prev + 1);
+    }, 800);
   }
-
-  setTimeout(() => {
-    setVisibleCount((prev) => prev + 1);
-  }, 800);
-}
 
   return (
     <>
@@ -44,16 +42,23 @@ useEffect(() => {
             key={index}
             style={{
               marginBottom: "36px",
+              color: "#4B382F",
+              fontFamily: '"Cormorant Garamond", serif',
+              fontSize: "22px",
+              lineHeight: 1.8,
+              fontWeight: 500,
             }}
           >
-            <InkWriter
-              text={paragraph}
-              onComplete={
-                index === visibleCount - 1
-                  ? handleParagraphComplete
-                  : undefined
-              }
-            />
+           <p
+  style={{
+    color: "#4B382F",
+    fontSize: "22px",
+    lineHeight: "1.8",
+    fontFamily: '"Cormorant Garamond", serif',
+  }}
+>
+  {paragraph}
+</p>
           </div>
         ))}
     </>

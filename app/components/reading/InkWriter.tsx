@@ -42,17 +42,19 @@ export default function InkWriter({
   }, [text, speed]);
 
   return (
-    <span
-      style={{
-        display: "inline-block",
-        whiteSpace: "pre-wrap",
-      }}
-    >
-      {visible}
+  <span
+    style={{
+      display: "inline-block",
+      whiteSpace: "pre-wrap",
+      color: "#4B382F",
+      fontFamily: '"Cormorant Garamond", serif',
+    }}
+  >
+    {visible}
 
-      {visible.length < text.length && (
-        <span className="inkCursor">|</span>
-      )}
-    </span>
-  );
+    {visible.length < text.length && (
+      <span className="inkCursor">|</span>
+    )}
+  </span>
+);
 }
