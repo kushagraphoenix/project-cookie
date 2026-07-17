@@ -49,16 +49,14 @@ export default function ParagraphWriter({
               fontWeight: 500,
             }}
           >
-           <p
-  style={{
-    color: "#4B382F",
-    fontSize: "22px",
-    lineHeight: "1.8",
-    fontFamily: '"Cormorant Garamond", serif',
-  }}
->
-  {paragraph}
-</p>
+        <InkWriter
+  text={paragraph}
+  onComplete={
+    index === visibleCount - 1
+      ? handleParagraphComplete
+      : undefined
+  }
+/>
           </div>
         ))}
     </>
